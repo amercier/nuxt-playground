@@ -9,10 +9,12 @@ import { promisify } from 'util';
 let nuxt = null;
 
 // Init Nuxt.js and start listening on localhost:4000
-test.before('Init Nuxt.js', async t => {
+test.before('Init Nuxt.js', async () => {
   const rootDir = resolve(__dirname, '..');
   const configPath = resolve(rootDir, 'nuxt.config.js');
-  const config = (await promisify(exists)(configPath)) ? require(configPath) : {};
+  const config = (await promisify(exists)(configPath))
+    ? require(configPath) // eslint-disable-line import/no-dynamic-require, global-require
+    : {};
   config.rootDir = rootDir; // project folder
   config.dev = false; // production build
   nuxt = new Nuxt(config);
@@ -21,14 +23,14 @@ test.before('Init Nuxt.js', async t => {
 });
 
 // Example of testing only generated html
-test('Route / exits and render HTML', async t => {
+test('Route / exits and render HTML', async (t) => {
   const context = {};
   const { html } = await nuxt.renderRoute('/', context);
   t.true(html.includes('<h1 class="grey">Hello world!</h1>'));
 });
 
 // Example of testing via DOM checking
-test('Route / exits and render HTML with CSS applied', async t => {
+test('Route / exits and render HTML with CSS applied', async (t) => {
   const window = await nuxt.renderAndGetWindow('http://localhost:4000/');
   const element = window.document.querySelector('.grey');
   t.not(element, null);
@@ -38,6 +40,6 @@ test('Route / exits and render HTML with CSS applied', async t => {
 });
 
 // Close the Nuxt server
-test.after('Closing server', t => {
+test.after('Closing server', () => {
   nuxt.close();
 });
