@@ -13,38 +13,35 @@ nuxt-playground
 
 [▶ Live Demo](https://nuxt-playground.herokuapp.com/)
 
-
 Prerequisites
 -------------
 
 - [Node.js] 8+, with **NPM** 5+
-
 
 Getting started
 ---------------
 
 ### 1. Install
 
-```
+```sh
 npm install
 ```
 
 ### 2. Start application
 
-```
+```sh
 npm run dev
 ```
 
-Open http://localhost:3000/
+Open <http://localhost:3000/>
 
 ### 3. Run tests
 
-```
+```sh
 npm run test
 ```
 
 **Note:** this runs `npm run test:unit` (unit tests) and `npm run test:e2e` (end-to-end tests) in parallel, see [package.json] for details.
-
 
 Deployment
 ----------
@@ -53,8 +50,8 @@ Deployment
 
 1. Create a new Heroku app
 2. Set config vars:
-  - `HOST` = `0.0.0.0`
-  - `NODE_ENV` = `production`
+   - `HOST` = `0.0.0.0`
+   - `NODE_ENV` = `production`
 3. Deploy your app (`git push heroku master` if you are [deploying with Git](https://devcenter.heroku.com/articles/git))
 
 Read [How to deploy with Heroku?](https://nuxtjs.org/faq/heroku-deployment) for more details. (note: `NPM_CONFIG_PRODUCTION` is not required for this app as we use `dependencies` instead of `devDependencies`).
@@ -67,12 +64,10 @@ Please refer to official [Nuxt FAQ]:
 - [How to deploy with Surge?](https://nuxtjs.org/faq/surge-deployment)
 - [How to deploy with Github?](https://nuxtjs.org/faq/github-pages)
 
-
 License
 -------
 
 [![License](https://img.shields.io/github/license/amercier/nuxt-playground.svg)](./LICENSE.md)
-
 
 [Nuxt]: https://nuxtjs.org/
 [Nuxt FAQ]: https://nuxtjs.org/faq/
